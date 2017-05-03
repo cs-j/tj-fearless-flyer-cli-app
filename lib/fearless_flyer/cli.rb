@@ -23,7 +23,7 @@ class FearlessFlyer::CLI
 
       if input.to_i > 0
         the_product = @products[input.to_i-1]
-        puts "#{the_product.name}"
+        puts "#{the_product}"
       elsif input == "list"
         list_products
       else
