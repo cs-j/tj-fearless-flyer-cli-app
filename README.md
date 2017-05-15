@@ -1,8 +1,6 @@
 # FearlessFlyer
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/fearless_flyer`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem provides a list of the six featured products on the monthly Trader Joe's Fearless Flyer publication, and then offers details - description, price, ingredients, related products - pertaining to each of those products.
 
 ## Installation
 
@@ -22,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Install the gem and then follow the prompts given, entering 1-6 to see information on a particular product or using the list or exit options
 
 ## Development
 
