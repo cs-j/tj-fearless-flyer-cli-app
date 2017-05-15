@@ -24,12 +24,14 @@ class FearlessFlyer::CLI
       if input.to_i > 0
         the_product = @products[input.to_i-1]
         puts "#{the_product}"
-        # This is where you'll get the description to print
+
+        @descriptions = FearlessFlyer::Scraper.scrape_product_details
+        description = @descriptions[input.to_i-1]
+        puts "#{description}"
 
       elsif input == "list"
         list_products
       else
-         #  puts "Not sure which product you're interested in. Type list or exit:"
       end
     end
   end
