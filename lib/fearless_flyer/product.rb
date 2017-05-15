@@ -1,4 +1,7 @@
 class FearlessFlyer::Product
-  attr_accessor :name, :description, :ingredients
+  attr_accessor :name, :description
+
+  def description
+  end
 
 end

@@ -9,7 +9,7 @@ class FearlessFlyer::CLI
   def list_products
     puts "Fearlessly Featured Products:"
 
-    @products = FearlessFlyer::Scraper.scrape_tjs
+    @products = FearlessFlyer::Scraper.scrape_products_page
     @products.each.with_index(1) do |product, i|
       puts "#{i}. #{product}"
     end
@@ -24,10 +24,12 @@ class FearlessFlyer::CLI
       if input.to_i > 0
         the_product = @products[input.to_i-1]
         puts "#{the_product}"
+        # This is where you'll get the description to print
+
       elsif input == "list"
         list_products
       else
-      #  puts "Not sure which product you're interested in. Type list or exit:"
+         #  puts "Not sure which product you're interested in. Type list or exit:"
       end
     end
   end
