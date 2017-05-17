@@ -9,9 +9,9 @@ class FearlessFlyer::CLI
   def list_products
     puts "Fearlessly Featured Products:"
 
-    @products = FearlessFlyer::Scraper.scrape_products_page
-    @products.each.with_index(1) do |product, i|
-      puts "#{i}. #{product}"
+    FearlessFlyer::Scraper.scrape_products_page
+    FearlessFlyer::Product.all.each.with_index(1) do |product, i|
+      puts "#{i}. #{product.name}"
     end
   end
 
@@ -22,12 +22,11 @@ class FearlessFlyer::CLI
       input = gets.strip.downcase
 
       if input.to_i > 0
-        the_product = @products[input.to_i-1]
-        puts "#{the_product}"
+        the_product = FearlessFlyer::Product.all[input.to_i-1]
 
-        @descriptions = FearlessFlyer::Scraper.scrape_product_details
-        description = @descriptions[input.to_i-1]
-        puts "#{description}"
+        FearlessFlyer::Scraper.scrape_product_details(the_product)
+        puts "#{the_product}"
+        puts "#{the_product.description}"
 
       elsif input == "list"
         list_products
