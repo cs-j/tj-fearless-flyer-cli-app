@@ -21,16 +21,16 @@ class FearlessFlyer::CLI
       puts "Enter the number that corresponds to the product you're interested in, type list to see the products again, or type exit:"
       input = gets.strip.downcase
 
-      if input.to_i > 0
+      if input.to_i.between?(1, 6)
         the_product = FearlessFlyer::Product.all[input.to_i-1]
 
-        FearlessFlyer::Scraper.scrape_product_details(the_product)
-        puts "#{the_product}"
-        puts "#{the_product.description}"
+        puts the_product.name
+        puts the_product.description
 
       elsif input == "list"
         list_products
       else
+        puts "Not sure which product you want."
       end
     end
   end

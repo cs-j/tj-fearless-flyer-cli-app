@@ -6,4 +6,3 @@ require_relative "./fearless_flyer/version"
 require_relative './fearless_flyer/cli'
 require_relative './fearless_flyer/product'
 require_relative './fearless_flyer/scraper'
-require_relative './fearless_flyer/products_page'

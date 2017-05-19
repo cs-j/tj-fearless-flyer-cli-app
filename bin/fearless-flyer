@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
+
 require 'pry'
 require "bundler/setup"
-require_relative "fearless_flyer"
+require 'fearless_flyer'
 
 FearlessFlyer::CLI.new.call

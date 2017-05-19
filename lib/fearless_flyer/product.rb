@@ -3,16 +3,13 @@ class FearlessFlyer::Product
 
   @@all = []
 
-  def initialize(name)
+  def initialize(name, url)
     @name = name
+    @url = url
     @@all << self
   end
 
   def self.all
     @@all
   end
-
-  def description
-  end
-
 end
