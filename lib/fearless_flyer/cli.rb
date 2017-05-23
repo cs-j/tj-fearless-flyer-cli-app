@@ -23,10 +23,7 @@ class FearlessFlyer::CLI
 
       if input.to_i.between?(1, 6)
         the_product = FearlessFlyer::Product.all[input.to_i-1]
-
-        puts the_product.name
-        puts the_product.description
-
+        FearlessFlyer::Scraper.scrape_product_details(the_product)
       elsif input == "list"
         list_products
       else

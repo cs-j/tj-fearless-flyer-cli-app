@@ -20,13 +20,18 @@ attr_reader :doc
   end
 
   def self.scrape_product_details(product)
-    product = FearlessFlyer::Product.find(product)
     product_url = product.url
+    product.description = ""
 
     url = "http://www.traderjoes.com#{product_url}"
     product_details = Nokogiri::HTML(open(url))
-    description = product_details.search('div.article p').text.strip
-    product.description = description
+    product_details.search('div.article p').each do |p|
+      text = p.text.strip
+      if text != "" && (p.text.strip.split(" ")[0] != "Ingredients:") && (p.text.strip.split(" ")[0] != "NOTE:") && (p.text.strip.split(" ")[0] != "Related")
+        product.description = product.description + p.text.strip
+      end
+      product.description
+    end
   end
 
 end
