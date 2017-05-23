@@ -30,8 +30,9 @@ attr_reader :doc
       if text != "" && (p.text.strip.split(" ")[0] != "Ingredients:") && (p.text.strip.split(" ")[0] != "NOTE:") && (p.text.strip.split(" ")[0] != "Related")
         product.description = product.description + p.text.strip
       end
-      product.description
     end
+    puts product.name
+    puts product.description
   end
 
 end

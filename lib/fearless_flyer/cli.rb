@@ -1,6 +1,7 @@
 class FearlessFlyer::CLI
 
   def call
+    FearlessFlyer::Scraper.scrape_products_page
     list_products
     menu
     goodbye
@@ -9,7 +10,6 @@ class FearlessFlyer::CLI
   def list_products
     puts "Fearlessly Featured Products:"
 
-    FearlessFlyer::Scraper.scrape_products_page
     FearlessFlyer::Product.all.each.with_index(1) do |product, i|
       puts "#{i}. #{product.name}"
     end
